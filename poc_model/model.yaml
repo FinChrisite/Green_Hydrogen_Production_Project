@@ -5,7 +5,7 @@ import:  # Import other files from paths relative to this file, or absolute path
 
 # Model configuration: all settings that affect the built model
 model:
-    name: [Proof of Concept] Green Hydrogen Production Model
+    name: 'Green Hydrogen Production Using Wind Energy"
 
     # What version of Calliope this model is intended for
     calliope_version: 0.6.5

@@ -31,33 +31,24 @@ techs:
                 om_con: 0.02  # USD per kWh
     # ccgt-end
 
-    # csp-start
-    csp:
+    # osw-start
+    wind_offshore:
         essentials:
-            name: 'Concentrating solar power'
-            color: '#F9CF22'
-            parent: supply_plus
-            carrier_out: power
+            color: '#3272B2'
+            name: Offshore Wind
+            parent: wind
         constraints:
-            storage_cap_max: 614033
-            energy_cap_per_storage_cap_max: 1
-            storage_loss: 0.002
-            resource: file=csp_resource.csv
-            resource_unit: energy_per_area
-            energy_eff: 0.4
-            parasitic_eff: 0.9
-            resource_area_max: inf
-            energy_cap_max: 10000
-            lifetime: 25
+            energy_cap_max: inf
+            resource: file=wind_offshore.csv
         costs:
             monetary:
-                interest_rate: 0.10
-                storage_cap: 50
-                resource_area: 200
-                resource_cap: 200
-                energy_cap: 1000
-                om_prod: 0.002
-    # csp-end
+                energy_cap: 2448.83  # 2016 GBP/kW {own_assumptions}
+                om_annual: 114.79  # 2016 GBP/kW {own_assumptions}
+            co2:
+                om_prod: 0.012  # kg CO2eq/kWh, {ipcc_ar5_wg3}
+        depreciation:
+            plant_life: 22
+    # osw-end
 
     ##
     # Storage
@@ -89,6 +80,13 @@ techs:
     demand_power:
         essentials:
             name: 'Power demand'
+            color: '#072486'
+            parent: demand
+            carrier: power
+     
+     demand_elecrolysis:
+        essentials:
+            name: 'Electrolysis'
             color: '#072486'
             parent: demand
             carrier: power
