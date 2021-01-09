@@ -16,12 +16,11 @@ techs:
             name: 'Combined cycle gas turbine'
             color: '#E37A72'
             parent: supply
-            carrier_out: power
+            carrier_out: electricity
         constraints:
             resource: inf
             energy_eff: 0.5
-            energy_cap_max: 40000  # kW
-            energy_cap_max_systemwide: 100000  # kW
+            energy_cap_max: 12000  # kW
             energy_ramping: 0.8
             lifetime: 25
         costs:
@@ -29,67 +28,91 @@ techs:
                 interest_rate: 0.10
                 energy_cap: 750  # USD per kW
                 om_con: 0.02  # USD per kWh
+            co2:
+                om_prod: 0.488 # kg CO2eq/ kWh (PostNote383 ref)
     # ccgt-end
 
     # osw-start
     wind_offshore:
         essentials:
-            color: '#3272B2'
             name: Offshore Wind
-            parent: wind
+            color: '#3272B2'
+            parent: supply
+            carrier_out: electricity
         constraints:
-            energy_cap_max: inf
-            resource: file=wind_offshore.csv
+            energy_cap_max: 2500 # kW 
+            resource: file=osw_resource_DSTfixed.csv
+            lifetime: 25 #  currently a guess
         costs:
             monetary:
-                energy_cap: 2448.83  # 2016 GBP/kW {own_assumptions}
-                om_annual: 114.79  # 2016 GBP/kW {own_assumptions}
+                interest_rate: 0.10 #  currently a guess
+                energy_cap: 2448.83  # 2016 £/kW {own_assumptions}
+                om_annual: 114.79  # 2016 £/kW {own_assumptions} (operation and maintenance costs)
             co2:
                 om_prod: 0.012  # kg CO2eq/kWh, {ipcc_ar5_wg3}
-        depreciation:
-            plant_life: 22
     # osw-end
-
+    
     ##
-    # Storage
+    # Conversion
     ##
-    # battery-start
-    battery:
+    # electrolysis start
+    electrolysis:
         essentials:
-            name: 'Battery storage'
+            name: 'Electrolysis for G Hydrogen Production'
             color: '#3B61E3'
-            parent: storage
-            carrier: power
+            parent: conversion
+            carrier_in: electricity
+            carrier_out: hydrogen
         constraints:
-            energy_cap_max: 1000  # kW
-            storage_cap_max: inf
-            energy_cap_per_storage_cap_max: 4
-            energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
-            storage_loss: 0  # No loss over time assumed
-            lifetime: 25
+            energy_cap_max: 2000 # kW (estimted electrolyser capacity -80% of osw max)
+            energy_eff: 0.65 # electrolyser efficiency
+            lifetime: 25 #  currently a guess
         costs:
             monetary:
-                interest_rate: 0.10
-                storage_cap: 200  # USD per kWh storage capacity
+                interest_rate: 0.10 #  currently a guess
+                energy_cap: 400  # £/kW
+            co2:
+                om_prod: 0 # kg CO2eq/kWh (Green H production)
+    ##
+    # Storage
+    #
+    # battery-start
+    # battery:
+        # essentials:
+            # name: 'Battery storage'
+            # color: '#3B61E3'
+            # parent: storage
+            # carrier: power
+        # constraints:
+            # energy_cap_max: 1000  # kW
+            # storage_cap_max: inf
+            # energy_cap_per_storage_cap_max: 4
+            # energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
+            # storage_loss: 0  # No loss over time assumed
+            # lifetime: 25
+        # costs:
+            # monetary:
+                # interest_rate: 0.10
+                # storage_cap: 200  # USD per kWh storage capacity
     # battery-end
 
     ##
     # Demand
     ##
     # demand-start
-    demand_power:
+    demand_electricity:
         essentials:
             name: 'Power demand'
-            color: '#072486'
+            color: '#868607'
             parent: demand
-            carrier: power
+            carrier: electricity
      
-     demand_elecrolysis:
+    demand_hydrogen:
         essentials:
-            name: 'Electrolysis'
+            name: 'Hydrodgen demand'
             color: '#072486'
             parent: demand
-            carrier: power
+            carrier: hydrogen
     # demand-end
 
     ##
@@ -102,14 +125,14 @@ techs:
             name: 'AC power transmission'
             color: '#8465A9'
             parent: transmission
-            carrier: power
+            carrier: electricity
         constraints:
             energy_eff: 0.85
             lifetime: 25
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 200
+                energy_cap: 2000000 # currently a guess
                 om_prod: 0.002
 
     free_transmission:
@@ -117,11 +140,25 @@ techs:
             name: 'Local power transmission'
             color: '#6783E3'
             parent: transmission
-            carrier: power
+            carrier: electricity
         constraints:
             energy_cap_max: inf
             energy_eff: 1.0
         costs:
             monetary:
                 om_prod: 0
+                
+    hydrogen_pipes:
+        essentials:
+            name: 'Hydrogen distribution'
+            color: '#823739'
+            parent: transmission
+            carrier: hydrogen
+        constraints:
+            energy_cap_max: 2000
+            energy_eff_per_distance: 0.975
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.10
     # transmission-end

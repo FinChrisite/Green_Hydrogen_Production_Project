@@ -5,15 +5,15 @@ import:  # Import other files from paths relative to this file, or absolute path
 
 # Model configuration: all settings that affect the built model
 model:
-    name: 'Green Hydrogen Production Using Wind Energy"
+    name: 'Green Hydrogen Production Using Wind Energy'
 
     # What version of Calliope this model is intended for
     calliope_version: 0.6.5
 
     # Time series data path - can either be a path relative to this file, or an absolute path
-    timeseries_data_path: 'timeseries_data'
+    timeseries_data_path: 'C:/UniPython/Green_Hydrogen_Production_Project/poc_Model/timeseries_data/'
 
-    subset_time: ['2019-01-01', '2020-01-01']  # Subset of timesteps
+    subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']  # Subset of timesteps
 
 # Run configuration: all settings that affect how the built model is run
 run:
@@ -24,7 +24,14 @@ run:
     bigM: 1e6  # Sets the scale of unmet demand, which cannot be too high, otherwise the optimisation will not converge
 
     zero_threshold: 1e-10  # Any value coming out of the backend that is smaller than this (due to floating point errors, probably) will be set to zero
+    
+    # operation:
+    
+        # horizon: 48 # unsure how these work
+        # window: 24  
+    
+    cyclic_storage: false
 
     mode: plan  # Choices: plan, operate
 
-    objective_options.cost_class: {monetary: 1}
+    objective_options.cost_class: {"co2": 1, "monetary": 0}
