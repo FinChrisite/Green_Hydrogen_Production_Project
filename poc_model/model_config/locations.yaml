@@ -48,17 +48,14 @@ links:
         techs:
             ac_transmission:
                 constraints:
-                    energy_cap_max: 10000
+                    energy_cap_max: 1000
 
     region3,region2:
         techs:
             ac_transmission:
-                constraints:
-                    energy_cap_max: 10000
+                
     region1-1,region1-2:
         techs:
             free_transmission:
-                constraints:
-                    energy_cap_max: inf
     
     # links-end

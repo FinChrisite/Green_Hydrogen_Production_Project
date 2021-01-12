@@ -20,7 +20,7 @@ techs:
         constraints:
             resource: inf
             energy_eff: 0.5
-            energy_cap_max: 12000  # kW
+            energy_cap_max: 20000  # kW
             energy_ramping: 0.8
             lifetime: 25
         costs:
