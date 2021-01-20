@@ -13,7 +13,7 @@ model:
     # Time series data path - can either be a path relative to this file, or an absolute path
     timeseries_data_path: 'C:/UniPython/Green_Hydrogen_Production_Project/poc_Model/timeseries_data/'
 
-    subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']  # Subset of timesteps
+    subset_time: ['2019-01-01 00:00:00', '2019-01-31 23:00:00']  # Subset of timesteps
 
 # Run configuration: all settings that affect how the built model is run
 run:
@@ -34,4 +34,4 @@ run:
 
     mode: plan  # Choices: plan, operate
 
-    objective_options.cost_class: {"co2": 1, "monetary": 0}
+    objective_options.cost_class: {"co2": 1, "monetary": 0.5}

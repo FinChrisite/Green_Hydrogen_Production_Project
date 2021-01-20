@@ -20,7 +20,7 @@ techs:
         constraints:
             resource: inf
             energy_eff: 0.5
-            energy_cap_max: 20000  # kW
+            energy_cap_max: 10000  # kW
             energy_ramping: 0.8
             lifetime: 25
         costs:
@@ -77,23 +77,23 @@ techs:
     # Storage
     #
     # battery-start
-    # battery:
-        # essentials:
-            # name: 'Battery storage'
-            # color: '#3B61E3'
-            # parent: storage
-            # carrier: power
-        # constraints:
-            # energy_cap_max: 1000  # kW
-            # storage_cap_max: inf
-            # energy_cap_per_storage_cap_max: 4
-            # energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
-            # storage_loss: 0  # No loss over time assumed
-            # lifetime: 25
-        # costs:
-            # monetary:
-                # interest_rate: 0.10
-                # storage_cap: 200  # USD per kWh storage capacity
+    battery:
+        essentials:
+            name: 'Battery storage'
+            color: '#3B61E3'
+            parent: storage
+            carrier: electricity
+        constraints:
+            energy_cap_max: 1000  # kW
+            storage_cap_max: inf
+            energy_cap_per_storage_cap_max: 4
+            energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
+            storage_loss: 0  # No loss over time assumed
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.10
+                storage_cap: 200  # USD per kWh storage capacity
     # battery-end
 
     ##
@@ -102,11 +102,13 @@ techs:
     # demand-start
     demand_electricity:
         essentials:
-            name: 'Power demand'
+            name: 'electricity demand'
             color: '#868607'
             parent: demand
             carrier: electricity
-     
+        constraints:
+            resource: file=electricity_demand_resource.csv
+    
     demand_hydrogen:
         essentials:
             name: 'Hydrodgen demand'
@@ -123,17 +125,33 @@ techs:
     ac_transmission:
         essentials:
             name: 'AC power transmission'
-            color: '#8465A9'
+            color: '#a965a9'
             parent: transmission
             carrier: electricity
         constraints:
+            energy_cap_max:
             energy_eff: 0.85
             lifetime: 25
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 2000000 # currently a guess
+                energy_cap: 100 # currently a guess
                 om_prod: 0.002
+                
+    undersea_transmission:
+        essentials:
+            name: 'undersea power transmission'
+            color: '#db34eb'
+            parent: transmission
+            carrier: electricity
+        constraints: 
+            energy_eff: 0.85
+            lifetime: 25
+        costs:
+            monetary:
+                interest_rate: 0.10
+                om_prod: 0.002
+                energy_cap_per_distance: 2.857 #£/km/kW this is taken from catapult
 
     free_transmission:
         essentials:

@@ -15,9 +15,10 @@ locations:
         techs:
             electrolysis:
             
-            demand_hydrogen:
-                constraints:
-                    resource: -1000
+            
+                    
+            battery:
+            
                 
     # region-1-end
     # other-locs-start
@@ -25,9 +26,10 @@ locations:
         coordinates: {lat: 55.86, lon: -4.24}
         techs:
             demand_electricity:
+        
+            demand_hydrogen:
                 constraints:
-                    resource: -10000
-                    
+                    resource: -1000        
 
     region3:
         coordinates: {lat: 57.48, lon: -1.79}
@@ -48,7 +50,9 @@ links:
         techs:
             ac_transmission:
                 constraints:
-                    energy_cap_max: 1000
+                    energy_cap_max: 2500
+            
+            hydrogen_pipes:
 
     region3,region2:
         techs:
