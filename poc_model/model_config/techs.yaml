@@ -38,7 +38,7 @@ techs:
             name: Offshore Wind
             color: '#3272B2'
             parent: supply
-            carrier_out: electricity
+            carrier_out: green electricity
         constraints:
             energy_cap_max: 2500 # kW 
             resource: file=osw_resource_DSTfixed.csv
@@ -59,9 +59,9 @@ techs:
     electrolysis:
         essentials:
             name: 'Electrolysis for G Hydrogen Production'
-            color: '#3B61E3'
+            color: '#e3e33b'
             parent: conversion
-            carrier_in: electricity
+            carrier_in: green electricity
             carrier_out: hydrogen
         constraints:
             energy_cap_max: 2000 # kW (estimted electrolyser capacity -80% of osw max)
@@ -73,6 +73,19 @@ techs:
                 energy_cap: 400  # £/kW
             co2:
                 om_prod: 0 # kg CO2eq/kWh (Green H production)
+                
+    grid_interface:
+        essentials:
+            name: 'Grid Interface'
+            color: '#d303fc'
+            parent: conversion
+            carrier_in: green electricity
+            carrier_out: electricity
+        constraints:
+            energy_cap_max: 2000 # kW (estimted electrolyser capacity -80% of osw max)
+            energy_eff: 1 # not true
+            lifetime: 25 #  currently a guess
+        
     ##
     # Storage
     #
@@ -80,9 +93,9 @@ techs:
     battery:
         essentials:
             name: 'Battery storage'
-            color: '#3B61E3'
+            color: '#51f542'
             parent: storage
-            carrier: electricity
+            carrier: green electricity
         constraints:
             energy_cap_max: 1000  # kW
             storage_cap_max: inf
@@ -143,7 +156,7 @@ techs:
             name: 'undersea power transmission'
             color: '#db34eb'
             parent: transmission
-            carrier: electricity
+            carrier: green electricity
         constraints: 
             energy_eff: 0.85
             lifetime: 25
@@ -158,7 +171,7 @@ techs:
             name: 'Local power transmission'
             color: '#6783E3'
             parent: transmission
-            carrier: electricity
+            carrier: green electricity
         constraints:
             energy_cap_max: inf
             energy_eff: 1.0
@@ -174,7 +187,7 @@ techs:
             carrier: hydrogen
         constraints:
             energy_cap_max: 2000
-            energy_eff_per_distance: 0.975
+            # energy_eff_per_distance: 0.975 # this effectively makes the pipes useless
             lifetime: 25
         costs:
             monetary:
