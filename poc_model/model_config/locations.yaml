@@ -15,8 +15,6 @@ locations:
         techs:
             electrolysis:            
             
-            #battery:
-            
             grid_interface:
             
             
@@ -30,7 +28,7 @@ locations:
 
             demand_hydrogen:
                 constraints:
-                    resource: -1000
+                    resource: -1500
 
     region3:
         coordinates: {lat: 57.48, lon: -1.79}
@@ -50,14 +48,10 @@ links:
     region1-2,region2:
         techs:
             ac_transmission:
-                constraints:
-                    # one_way: true #this line is causing error, would be good to have this though
-                    energy_cap_max: 2500
                              
-            
             hydrogen_pipes:
                 constraints:
-                    energy_cap_max: 1000
+                    energy_cap_max: 2000
 
     region3,region2:
         techs:

@@ -34,4 +34,4 @@ run:
 
     mode: plan  # Choices: plan, operate
 
-    objective_options.cost_class: {"co2": 0.8 , "monetary": 0.5}
+    objective_options.cost_class: {"co2": 0.8 , "monetary": 0.2}

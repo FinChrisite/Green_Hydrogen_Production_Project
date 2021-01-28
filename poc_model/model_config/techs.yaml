@@ -26,8 +26,8 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 750  # USD per kW
-                om_con: 0.02  # USD per kWh
+                energy_cap: 550  # £/kW Figures need to be checked
+                om_con: 0.015  # £/kWh Figures need to be checked
             co2:
                 om_prod: 0.488 # kg CO2eq/ kWh (PostNote383 ref)
     # ccgt-end
@@ -41,15 +41,15 @@ techs:
             carrier_out: green electricity
         constraints:
             energy_cap_max: 2500 # kW 
-            resource: file=osw_resource_DSTfixed.csv
-            lifetime: 25 #  currently a guess
+            resource: file=osw_resource_DSTfixed.csv # Synthesised output data of a 2500 kW OSW in region1-1 [RenewablesNinja]
+            lifetime: 25
         costs:
             monetary:
-                interest_rate: 0.10 #  currently a guess
-                energy_cap: 2448.83  # 2016 £/kW {own_assumptions}
-                om_annual: 114.79  # 2016 £/kW {own_assumptions} (operation and maintenance costs)
+                interest_rate: 0.10
+                energy_cap: 2781 # £/kW 2020 CAPEX & DEVEX [Catapult Report]
+                om_annual: 76  # £/kW/year 2020 OPEX [Catapult Report]
             co2:
-                om_prod: 0.012  # kg CO2eq/kWh, {ipcc_ar5_wg3}
+                om_prod: 0.012  # kg CO2eq/kWh, [ipcc_ar5_wg3]
     # osw-end
     
     ##
@@ -66,11 +66,12 @@ techs:
         constraints:
             energy_cap_max: 2000 # kW (estimted electrolyser capacity -80% of osw max)
             energy_eff: 0.65 # electrolyser efficiency
-            lifetime: 25 #  currently a guess
+            lifetime: 25
         costs:
             monetary:
-                interest_rate: 0.10 #  currently a guess
-                energy_cap: 400  # £/kW
+                interest_rate: 0.1
+                energy_cap: 1037.3 # £/kW 2020 CAPEX [Catapult Report]
+                om_annual: 175.1  # £/kW/year 2020 OPEX [Catapult Report]
             co2:
                 om_prod: 0 # kg CO2eq/kWh (Green H production)
                 
@@ -82,7 +83,7 @@ techs:
             carrier_in: green electricity
             carrier_out: electricity
         constraints:
-            energy_cap_max: 2000 # kW (estimted electrolyser capacity -80% of osw max)
+            energy_cap_max: 2500
             energy_eff: 1 # not true
             lifetime: 25 #  currently a guess
         
@@ -153,7 +154,7 @@ techs:
                 
     undersea_transmission:
         essentials:
-            name: 'undersea power transmission'
+            name: 'Undersea power transmission'
             color: '#db34eb'
             parent: transmission
             carrier: green electricity
@@ -164,8 +165,8 @@ techs:
             monetary:
                 interest_rate: 0.10
                 om_prod: 0.002
-                energy_cap_per_distance: 2.857 #£/km/kW this is taken from catapult
-
+                energy_cap_per_distance: 2.857 #£/km/kW [Catapult]
+                
     free_transmission:
         essentials:
             name: 'Local power transmission'
@@ -187,7 +188,7 @@ techs:
             carrier: hydrogen
         constraints:
             energy_cap_max: 2000
-            # energy_eff_per_distance: 0.975 # this effectively makes the pipes useless
+            energy_eff: 0.975
             lifetime: 25
         costs:
             monetary:
