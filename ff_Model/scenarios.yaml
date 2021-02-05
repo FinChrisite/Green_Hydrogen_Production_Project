@@ -1,0 +1,25 @@
+##
+# Scenarios are optional, named combinations of overrides
+##
+scenarios:
+    
+
+
+##
+# Overrides are the building blocks from which scenarios can be defined
+##
+overrides:
+    
+
+  
+        
+    ##
+    # Overrides to demonstrate the run generator ("calliope generate_runs")
+    ##
+
+    
+
+    ##
+    # Overrides to demonstrate group constraints
+    ##
+

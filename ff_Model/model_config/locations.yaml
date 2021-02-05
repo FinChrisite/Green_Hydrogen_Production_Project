@@ -1,0 +1,69 @@
+##
+# LOCATIONS
+##
+
+locations:
+    # region-1-start
+    region1-1:
+        coordinates: {lat: 56.845, lon: -2.0514}
+        techs:
+            wind_offshore:
+              
+    
+    region1-2:
+        coordinates: {lat: 56.8448, lon: -2.2743}
+        techs:
+            electrolysis:            
+            
+            grid_interface:
+            
+            # demand_electricity:
+                # constraints:
+                    # resource: -500 # kW
+                
+    # region-1-end
+    # other-locs-start
+    region2:
+        coordinates: {lat: 55.86, lon: -4.24}
+        techs:
+            demand_electricity: 
+
+            demand_hydrogen:
+                constraints:
+                    resource: -1000 # kW (currently set low to force surplus ac transmission)
+
+    region3:
+        coordinates: {lat: 57.48, lon: -1.79}
+        techs:
+            ccgt:
+               
+
+   
+    # other-locs-end
+
+##
+# TRANSMISSION CAPACITIES
+##
+
+links:
+    # links-start
+    region1-2,region2:
+        techs:
+            ac_transmission:
+                constraints:
+                    energy_cap_max: 2000
+                
+                             
+            hydrogen_pipes:
+                constraints:
+                    energy_cap_max: 2000
+
+    region3,region2:
+        techs:
+            ac_transmission:
+                
+    region1-1,region1-2:
+        techs:
+            undersea_transmission:
+    
+    # links-end
