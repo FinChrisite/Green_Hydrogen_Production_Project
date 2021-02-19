@@ -40,7 +40,7 @@ techs:
             parent: supply
             carrier_out: green electricity
         constraints:
-            energy_cap_max: 2500 # kW 
+            energy_cap_min: 2500 # kW 
             resource: file=osw_resource_DSTfixed.csv # Synthesised output data of a 2500 kW OSW in region1-1 [RenewablesNinja]
             lifetime: 25
         costs:
@@ -86,7 +86,12 @@ techs:
             energy_cap_max: 2500
             energy_eff: 1 # not true
             lifetime: 25 #  currently a guess
-        
+        costs:
+            monetary:
+                om_prod: 0
+                export: 0.1
+            co2:
+                om_prod: 0
     ##
     # Storage
     #
@@ -149,8 +154,8 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 100 # currently a guess
-                om_prod: 0.002
+                #energy_cap: 100 # currently a guess
+                #om_prod: 0.002
                 
     undersea_transmission:
         essentials:
@@ -159,7 +164,7 @@ techs:
             parent: transmission
             carrier: green electricity
         constraints: 
-            energy_eff: 0.85
+            energy_eff: 0.9 # currently a guess
             lifetime: 25
         costs:
             monetary:

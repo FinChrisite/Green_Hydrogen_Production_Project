@@ -5,37 +5,40 @@
 locations:
     # region-1-start
     region1-1:
-        coordinates: {lat: 56.845, lon: -2.0514}
+        coordinates: {lat: 57.5616, lon: -0.7116}
         techs:
             wind_offshore:
               
     
     region1-2:
-        coordinates: {lat: 56.8448, lon: -2.2743}
+        coordinates: {lat: 57.502217, lon: -1.771551}
         techs:
             electrolysis:            
             
             grid_interface:
             
-            # demand_electricity:
-                # constraints:
-                    # resource: -500 # kW
+            battery:
+            
+            ccgt:
                 
     # region-1-end
     # other-locs-start
+    
     region2:
         coordinates: {lat: 55.86, lon: -4.24}
         techs:
-            demand_electricity: 
+            demand_electricity:
+                constraints:
+                    resource: file=scotland_ND_reduced_resource.csv
 
             demand_hydrogen:
                 constraints:
-                    resource: -1000 # kW (currently set low to force surplus ac transmission)
+                    resource: -2000 # kWh
 
-    region3:
-        coordinates: {lat: 57.48, lon: -1.79}
-        techs:
-            ccgt:
+    # region3:
+        # coordinates: {lat: 57.48, lon: -1.79}
+        # techs:
+            # ccgt:
                
 
    
@@ -50,17 +53,12 @@ links:
     region1-2,region2:
         techs:
             ac_transmission:
-                constraints:
-                    energy_cap_max: 2000
-                
-                             
+                     
             hydrogen_pipes:
-                constraints:
-                    energy_cap_max: 2000
-
-    region3,region2:
-        techs:
-            ac_transmission:
+                    
+    # region3,region2:
+        # techs:
+            # ac_transmission:
                 
     region1-1,region1-2:
         techs:

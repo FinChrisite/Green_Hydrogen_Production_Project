@@ -9,9 +9,11 @@ model:
 
     # What version of Calliope this model is intended for
     calliope_version: 0.6.5
+    
+    timeseries_dateformat: "%d/%m/%Y %H:%M"
 
     # Time series data path - can either be a path relative to this file, or an absolute path
-    timeseries_data_path: 'C:/UniPython/Green_Hydrogen_Production_Project/poc_Model/timeseries_data/'
+    timeseries_data_path: 'C:/UniPython/Green_Hydrogen_Production_Project/ff_Model/timeseries_data/'
 
     subset_time: ['2019-01-01 00:00:00', '2019-01-31 23:00:00']  # Subset of timesteps
 
@@ -33,5 +35,5 @@ run:
     cyclic_storage: false
 
     mode: plan  # Choices: plan, operate
-
-    objective_options.cost_class: {"co2": 1 , "monetary": 0.5}
+    
+    objective_options.cost_class: {"monetary": 1}

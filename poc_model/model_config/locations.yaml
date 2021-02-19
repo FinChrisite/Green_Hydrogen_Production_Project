@@ -17,7 +17,9 @@ locations:
             
             grid_interface:
             
-            
+            # demand_electricity:
+                # constraints:
+                    # resource: -500 # kW
                 
     # region-1-end
     # other-locs-start
@@ -28,7 +30,7 @@ locations:
 
             demand_hydrogen:
                 constraints:
-                    resource: -1500
+                    resource: -1000 # kW (currently set low to force surplus ac transmission)
 
     region3:
         coordinates: {lat: 57.48, lon: -1.79}
@@ -48,6 +50,9 @@ links:
     region1-2,region2:
         techs:
             ac_transmission:
+                constraints:
+                    energy_cap_max: 2000
+                
                              
             hydrogen_pipes:
                 constraints:
