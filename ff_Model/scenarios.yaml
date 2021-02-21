@@ -38,15 +38,16 @@ overrides:
     no_grid_interface:
         locations.region1-2.techs.grid_interface.exists: false
         links.region1-1,region1-2.techs.undersea_transmission.exists: false
-        links.region1-2,region2.techs.ac_transmission.exists: false
-        locations.region2.techs.demand_electricity.exists: false
-        locations.region3.exists: false
-        links.region3,region2.exists: false
+        # links.region1-2,region2.techs.ac_transmission.exists: false
+        # locations.region2.techs.demand_electricity.exists: false
+        # locations.region3.exists: false
+        # links.region3,region2.exists: false
         
     beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output.csv #this or raw?
+        techs.wind_offshore.constraints.resource_unit: energy
+        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output.csv
         
     larger_osw:   
         techs.wind_offshore.costs.monetary.energy_cap: 0 # since it's already been built
@@ -56,6 +57,7 @@ overrides:
         locations.region1-1.exists: false #no longer offshore
         locations.region1-2.techs.wind_offshore.exists: true #now onshore wind
         links.region1-1,region1-2.exists: false #link is no longer required
+        techs.wind_offshore.constraints.resource_unit: energy
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output.csv #Curtailed energy from Kilbraur windfarm
         
     ## Time Period Overrides

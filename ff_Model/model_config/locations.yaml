@@ -27,13 +27,15 @@ locations:
     region2:
         coordinates: {lat: 55.86, lon: -4.24}
         techs:
+            hydrogen_grid:
+            
             demand_electricity:
                 constraints:
-                    resource: file=scotland_ND_reduced_resource.csv
+                    resource: file=scotland_ND_resource.csv
 
             demand_hydrogen:
                 constraints:
-                    resource: -2000 # kWh
+                    resource: -10000 # kWh
 
     # region3:
         # coordinates: {lat: 57.48, lon: -1.79}
