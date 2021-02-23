@@ -1,0 +1,86 @@
+##
+# Scenarios are optional, named combinations of overrides
+##
+scenarios:
+   
+   concept_scenario_1: []
+   concept_scenario_2: ["offshore_electrolysis","no_grid_interface"]
+   concept_scenario_3: [existing_osw","beatrice_osw"]
+   concept_scenario_4: ["existing_osw","no_grid_interface","kilbraur_osw"]
+   
+   high_wind/concept_scenario_1: ["windy_month"]
+   high_wind/concept_scenario_2: ["windy_month","offshore_electrolysis","no_grid_interface"]
+   high_wind/concept_scenario_3: ["windy_month","existing_osw","beatrice_osw"]
+   high_wind/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
+   
+   low_wind/concept_scenario_1: ["non_windy_month"]
+   low_wind/concept_scenario_2: ["non_windy_month","offshore_electrolysis","no_grid_interface"]
+   low_wind/concept_scenario_3: ["non_windy_month","larger_osw","beatrice_osw"]
+   low_wind/concept_scenario_4: ["non_windy_month","larger_osw","no_grid_interface","kilbraur_osw"]
+   
+   full_year/concept_scenario_1: ["full_year"]
+   full_year/concept_scenario_2: ["full_year","offshore_electrolysis","no_grid_interface"]
+   full_year/concept_scenario_3: ["full_year","existing_osw","beatrice_osw"]
+   full_year/concept_scenario_4: ["full_year","existing_osw","no_grid_interface","kilbraur_osw"]
+
+##
+# Overrides are the building blocks from which scenarios can be defined
+##
+overrides:
+    
+    offshore_electrolysis:
+        techs.electrolysis.costs.monetary.energy_cap: 2082 # £/kW 2020 CAPEX [Catapult Report] ((466.6+887)/0.65))
+        locations.region1-1.techs.electrolysis.exists: true
+        locations.region1-2.techs.electrolysis.exists: false
+        locations.region1-1.techs.battery.exists: true
+        links.region1-1,region1-2.techs.hydrogen_pipes.exists: true
+        
+    no_grid_interface:
+        links.region1-1,region1-2.techs.undersea_transmission.exists: false
+        
+    beatrice_osw:
+        locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
+        locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
+        techs.wind_offshore.constraints.resource_unit: energy
+        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output.csv
+        techs.electrolysis.costs.monetary.om_con: 0.14 # No longer selling to grid, system is a grid user and must pay for electricity
+        
+    existing_osw:   
+        techs.wind_offshore.costs.monetary.energy_cap: 0 # since it's already been built
+        
+        
+    kilbraur_osw:
+        locations.region1-1.exists: false #no longer offshore
+        locations.region1-2.techs.wind_offshore.exists: true #now onshore wind
+        links.region1-1,region1-2.exists: false #link is no longer required
+        techs.wind_offshore.constraints.resource_unit: energy
+        techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output.csv #Curtailed energy from Kilbraur windfarm
+        techs.electrolysis.costs.monetary.om_con: -0.14 # System is being paid to use up unwanted energy
+    
+    ## Time Period Overrides
+    
+    windy_month:
+        model.subset_time: ['2019-03-01 00:00:00', '2019-03-31 23:00:00'] # March is shown to be the month with greatest average output
+        
+    non_windy_month:
+        model.subset_time: ['2019-05-01 00:00:00', '2019-05-31 23:00:00'] # May is shown to be the month with llowest average output
+    
+    windy_day:
+        model.subset_time: ['2019-02-18 00:00:00', '2019-02-18 23:00:00'] # This is shown to be the most windy day of the year in windfarm analysis
+    
+    non_windy_day:
+        model.subset_time: ['2019-10-30 00:00:00', '2019-10-30 23:00:00'] # This is shown to be the least windy day of the year in windfarm analysis
+    
+    full_year:
+        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        
+    ##
+    # Overrides to demonstrate the run generator ("calliope generate_runs")
+    ##
+
+    
+
+    ##
+    # Overrides to demonstrate group constraints
+    ##
+
