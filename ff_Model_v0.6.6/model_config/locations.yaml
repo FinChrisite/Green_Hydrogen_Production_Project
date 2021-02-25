@@ -23,25 +23,19 @@ locations:
     region2:
         coordinates: {lat: 55.86, lon: -4.24}
         techs:
-            hydrogen_grid:
+            smr:
+            
+            fossil_elec: 
+            
+            zero-carbon_elec:
             
             electricity_grid:
-            
-            demand_electricity:
                 constraints:
                     resource: file=scotland_ND_resource.csv
 
             demand_hydrogen:
                 constraints:
                     resource: -10000 # kWh
-
-    # region3:
-        # coordinates: {lat: 57.48, lon: -1.79}
-        # techs:
-            # ccgt:
-               
-
-   
     # other-locs-end
 
 ##
@@ -57,11 +51,7 @@ links:
                     one_way: true
                      
             hydrogen_pipes:
-                    
-    region3,region2:
-        techs:
-            ac_transmission:
-                
+                                 
     region1-1,region1-2:
         techs:
             undersea_transmission:

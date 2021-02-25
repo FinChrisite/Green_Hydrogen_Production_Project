@@ -13,7 +13,7 @@ model:
     timeseries_dateformat: "%d/%m/%Y %H:%M"
 
     # Time series data path - can either be a path relative to this file, or an absolute path
-    timeseries_data_path: 'C:/UniPython/Green_Hydrogen_Production_Project/ff_Model/timeseries_data/'
+    timeseries_data_path: 'C:/SPB_Data/EM401_Code/Green_Hydrogen_Production_Project/ff_Model_v0.6.6/timeseries_data'
 
     subset_time: ['2019-01-01 00:00:00', '2019-01-31 23:00:00']  # Subset of timesteps
 
@@ -36,4 +36,4 @@ run:
 
     mode: plan  # Choices: plan, operate
     
-    objective_options.cost_class: {"monetary": 0.8,"co2":0.2}
+    objective_options.cost_class: {"monetary": 0.9,"co2":0.1}

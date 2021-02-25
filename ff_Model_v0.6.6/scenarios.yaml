@@ -3,22 +3,32 @@
 ##
 scenarios:
    
-   concept_scenario_1: []
-   concept_scenario_2: ["offshore_electrolysis","no_grid_interface"]
-   concept_scenario_3: [existing_osw","beatrice_osw"]
-   concept_scenario_4: ["existing_osw","no_grid_interface","kilbraur_osw"]
+   default/concept_scenario_1: ["on_grid"]
+   default/concept_scenario_2: ["offshore_electrolysis","no_grid_interface"]
+   default/concept_scenario_3: ["existing_osw","beatrice_osw"]
+   default/concept_scenario_4: ["existing_osw","no_grid_interface","kilbraur_osw"]
    
-   high_wind/concept_scenario_1: ["windy_month"]
-   high_wind/concept_scenario_2: ["windy_month","offshore_electrolysis","no_grid_interface"]
-   high_wind/concept_scenario_3: ["windy_month","existing_osw","beatrice_osw"]
-   high_wind/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
+   high_wind_month/concept_scenario_1: ["on_grid","windy_month"]
+   high_wind_month/concept_scenario_2: ["windy_month","offshore_electrolysis","no_grid_interface"]
+   high_wind_month/concept_scenario_3: ["windy_month","existing_osw","beatrice_osw"]
+   high_wind_month/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
    
-   low_wind/concept_scenario_1: ["non_windy_month"]
-   low_wind/concept_scenario_2: ["non_windy_month","offshore_electrolysis","no_grid_interface"]
-   low_wind/concept_scenario_3: ["non_windy_month","larger_osw","beatrice_osw"]
-   low_wind/concept_scenario_4: ["non_windy_month","larger_osw","no_grid_interface","kilbraur_osw"]
+   low_wind_month/concept_scenario_1: ["on_grid","non_windy_month"]
+   low_wind_month/concept_scenario_2: ["non_windy_month","offshore_electrolysis","no_grid_interface"]
+   low_wind_month/concept_scenario_3: ["non_windy_month","existing_osw","beatrice_osw"]
+   low_wind_month/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
    
-   full_year/concept_scenario_1: ["full_year"]
+   high_wind_day/concept_scenario_1: ["on_grid","windy_day"]
+   high_wind_day/concept_scenario_2: ["windy_day","offshore_electrolysis","no_grid_interface"]
+   high_wind_day/concept_scenario_3: ["windy_day","existing_osw","beatrice_osw"]
+   high_wind_day/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","kilbraur_osw"]
+   
+   low_wind_day/concept_scenario_1: ["on_grid","non_windy_day"]
+   low_wind_day/concept_scenario_2: ["non_windy_day","offshore_electrolysis","no_grid_interface"]
+   low_wind_day/concept_scenario_3: ["non_windy_day","existing_osw","beatrice_osw"]
+   low_wind_day/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","kilbraur_osw"]
+   
+   full_year/concept_scenario_1: ["on_grid","full_year"]
    full_year/concept_scenario_2: ["full_year","offshore_electrolysis","no_grid_interface"]
    full_year/concept_scenario_3: ["full_year","existing_osw","beatrice_osw"]
    full_year/concept_scenario_4: ["full_year","existing_osw","no_grid_interface","kilbraur_osw"]
@@ -37,6 +47,9 @@ overrides:
         
     no_grid_interface:
         links.region1-1,region1-2.techs.undersea_transmission.exists: false
+        
+    on_grid:
+        techs.wind_offshore.costs.monetary.energy_cap: 2755 # £/kW 2020 CAPEX & DEVEX [Catapult Report]
         
     beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
