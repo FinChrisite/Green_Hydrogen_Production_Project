@@ -22,7 +22,7 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                om_prod: 0.17
+                om_prod: 0.11
             co2:
                 om_prod: 0.488 # kg CO2eq/ kWh (PostNote383 ref)
     
@@ -38,7 +38,7 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                om_prod: 0.17
+                om_prod: 0.12 #look at levelised cost
             co2:
                 om_prod: 0
                               
@@ -59,7 +59,7 @@ techs:
             # co2:
                 # om_prod: 0.5 # kg CO2eq/ kWh
 
-    # osw-start
+    
     wind_offshore:
         essentials:
             name: Offshore Wind
@@ -67,7 +67,7 @@ techs:
             parent: supply
             carrier_out: electricity
         constraints:
-            energy_cap_max: 100000 #otherwise osw contributes more to elec grid demand than alternative sources
+            #energy_cap_max: 100000 #otherwise osw contributes more to elec grid demand than alternative sources
             resource_unit: energy_per_cap
             resource: file=Synth_1kW_osw.csv # Synthesised output data of a 1 kW OSW in region1-1 [RenewablesNinja]
             lifetime: 25
@@ -77,13 +77,14 @@ techs:
                 energy_cap: 2191 # £/kW 2020 CAPEX & DEVEX [Catapult Report]
                 om_annual: 75  # £/kW/year 2020 OPEX [Catapult Report]
             co2:
-                om_prod: 0.012  # kg CO2eq/kWh, [ipcc_ar5_wg3]
-    # osw-end
+                om_prod: 0  # kg CO2eq/kWh, [ipcc_ar5_wg3]
+    
     
     ##
     # Conversion
     ##
-    # electrolysis start
+    
+   
     electrolysis:
         essentials:
             name: 'Electrolysis for G Hydrogen Production'
@@ -118,14 +119,14 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.1
-                om_prod: 0.01
+                om_prod: 0.01 #This values will be overwitten in iteration analysis
             co2:
                 om_prod: 0.356 # kg CO2eq/kWh [Timberg et all Hydrogen_2020] (99 gCO2eq/MJ)
     
     ##
     # Storage
     #
-    # battery-start
+    
     battery:
         essentials:
             name: 'Battery storage'
@@ -142,12 +143,12 @@ techs:
             monetary:
                 interest_rate: 0.10
                 storage_cap: 150  # kWh storage capacity
-    # battery-end
+    
 
     ##
     # Demand
     ##
-    # demand-start
+    
     electricity_grid:
         essentials:
             name: 'electricity grid demand'
@@ -167,7 +168,7 @@ techs:
     # Transmission
     ##
 
-    # transmission-start
+    
     ac_transmission:
         essentials:
             name: 'AC power transmission'
