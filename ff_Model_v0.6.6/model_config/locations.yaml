@@ -5,7 +5,7 @@
 locations:
     # region-1-start
     region1-1:
-        coordinates: {lat: 57.5616, lon: -0.7116}
+        coordinates: {lat: 57.8618, lon: -1.3467}
         techs:
             wind_offshore:
               
@@ -23,19 +23,17 @@ locations:
     region2:
         coordinates: {lat: 55.86, lon: -4.24}
         techs:
-            smr:
+            grid_hydrogen: 
             
-            fossil_elec: 
+            grid_elec:
             
-            zero-carbon_elec:
-            
-            electricity_grid:
+            demand_elec:
                 constraints:
                     resource: file=scotland_ND_resource.csv
 
             demand_hydrogen:
                 constraints:
-                    resource: -10000 # kWh
+                    resource: -1000000 # kWh
     # other-locs-end
 
 ##
