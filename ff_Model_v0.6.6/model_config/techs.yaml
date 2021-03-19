@@ -8,24 +8,7 @@ techs:
 
     ##
     # Supply
-    ##
-   
-    # fossil_elec:
-        # essentials:
-            # name: 'Electricity from convential fossil sources (gas)'
-            # color: '#E37A72'
-            # parent: supply
-            # carrier_out: electricity
-        # constraints:
-            # resource: inf
-            # lifetime: 25
-        # costs:
-            # monetary:
-                # interest_rate: 0.10
-                # om_prod: 0.11 # wholesale numbers lcoe 
-            # co2:
-                # om_prod: 0.488 # kg CO2eq/ kWh (PostNote383 ref)
-                
+    ##             
     grid_elec:
         essentials:
             name: 'Electricity from grid'
@@ -34,31 +17,12 @@ techs:
             carrier_out: electricity
         constraints:
             resource: inf
-            #lifetime: 25
         costs:
             monetary:
-                #interest_rate: 0.10
-                om_prod: 0.11 # wholesale numbers lcoe 
+                om_prod: 0.058 # £/kWh (reference-wholesale 2025) [Updated Energy & Emissions Projections Annex 4 UK GOV BEIS]
             co2:
                 om_prod: 0.1 # kg CO2eq/ kWh (PostNote383 ref)
-    
-    # zero-carbon_elec:
-        # essentials:
-            # name: 'Electricity from zero-carbon sources'
-            # color: '#42f5c8'
-            # parent: supply
-            # carrier_out: electricity
-        # constraints:
-            # resource: file=scotland_renewables_resource.csv
-            # lifetime: 25
-        # costs:
-            # monetary:
-                # interest_rate: 0.10
-                # om_prod: 0.12 #look at levelised cost
-            # co2:
-                # om_prod: 0
                               
-    
     grid_hydrogen:
         essentials:
             name: 'Conventional gas sources'
@@ -67,11 +31,9 @@ techs:
             carrier_out: hydrogen
         constraints:
             resource: inf
-            #lifetime: 25
         costs:
             monetary:
-                #interest_rate: 0.1
-                om_prod: 0.2
+                om_prod: 0.044 #£/kWh 2025 (LCOE SMR+CCS) [CCC Hydrogen-in-a-low-carbon-economy pg67]
             co2:
                 om_prod: 0.356 # kg CO2eq/ kWh
 
@@ -83,15 +45,15 @@ techs:
             parent: supply
             carrier_out: electricity
         constraints:
-            energy_cap_min: 1000000 #otherwise osw contributes more to elec grid demand than alternative sources
             resource_unit: energy
-            resource: file=Synth_1GW_osw.csv # Synthesised output data of a 1 GW OSW in region1-1 [RenewablesNinja]
+            resource: file=Synth_1GW_osw_hourly.csv # Synthesised output data of a 1 GW OSW in region1-1 [RenewablesNinja]
+            #force_resource: true
             lifetime: 25
         costs:
             monetary:
                 interest_rate: 0.10
-                energy_cap: 2191 # £/kW 2020 CAPEX & DEVEX [Catapult Report]
-                om_annual: 75  # £/kW/year 2020 OPEX [Catapult Report]
+                energy_cap: 1884.5 # £/kW 2025(interpolated) CAPEX & DEVEX [ORE-Catapult Report] (2191+1587)/2
+                om_annual: 66  # £/kW/year 2025(interpolated) OPEX [ORE-Catapult Report] (75+57)/2
             co2:
                 om_prod: 0  # kg CO2eq/kWh, [ipcc_ar5_wg3]
     
@@ -115,30 +77,12 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.1
-                energy_cap: 1405 # £/kW 2020 CAPEX [Catapult Report] ((26.3+887)/0.65))
-                om_annual: 2  # £/kW/year 2020 OPEX [Catapult Report] (1.3/0.65)   
+                energy_cap: 1403 # £/kW 2025(interpolated) CAPEX [ORE-Catapult Report] (((26.3+23.7)/2)+887)/0.65
+                om_annual: 1.74  # £/kW/year 2020 OPEX [ORE-Catapult Report] ((1.3+0.96)/2)/0.65 
             co2:
                 om_prod: 0 # kg CO2eq/kWh (Green H production)
     
-                
-    # smr:
-        # essentials:
-            # name: 'Steam Methane Reforming Hydrogen Production'
-            # color: '#bab6a9'
-            # parent: conversion
-            # carrier_in: electricity
-            # carrier_out: hydrogen
-            # export_carrier: hydrogen
-        # constraints:
-            # energy_eff: 0.7 # electrolyser efficiency [NYSERC
-            # lifetime: 25
-        # costs:
-            # monetary:
-                # interest_rate: 0.1
-                # om_prod: 0.065 #This values will be overwitten in iteration analysis
-            # co2:
-                # om_prod: 0.356 # kg CO2eq/kWh [Timberg et all Hydrogen_2020] (99 gCO2eq/MJ)
-    
+ 
     ##
     # Storage
     #
@@ -150,7 +94,7 @@ techs:
             parent: storage
             carrier: electricity
         constraints:
-            storage_cap_max: 100000  # otherwise battery becomes unrealistically huge
+            #storage_cap_max: 100000  # otherwise battery becomes unrealistically huge
             #energy_cap_per_storage_cap_max: 4
             energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
             storage_loss: 0  # No loss over time assumed
@@ -158,7 +102,7 @@ techs:
         costs:
             monetary:
                 interest_rate: 0.10
-                storage_cap: 150  # kWh storage capacity
+                storage_cap: 0.115 # £/kWh   # kWh [Lazard's Levelized Cost of Storage Analysis v6.0] (average of wholesale infront of meter)
     
 
     ##
