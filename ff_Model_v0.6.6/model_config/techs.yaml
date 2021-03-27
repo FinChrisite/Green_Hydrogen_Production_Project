@@ -19,9 +19,9 @@ techs:
             resource: inf
         costs:
             monetary:
-                om_prod: 0.058 # £/kWh (reference-wholesale 2025) [Updated Energy & Emissions Projections Annex 4 UK GOV BEIS]
+                om_prod: 0.057 # £/kWh (reference-wholesale 2030) [Updated Energy & Emissions Projections Annex 4 UK GOV BEIS]
             co2:
-                om_prod: 0.1 # kg CO2eq/ kWh (PostNote383 ref)
+                om_prod: 0.00236 # £/kWh [CCC Carbon Budget pg134 and BEIS Energy & Emissions Projections Annex 4] (50g/kWh*47.2£/tonne)
                               
     grid_hydrogen:
         essentials:
@@ -33,9 +33,9 @@ techs:
             resource: inf
         costs:
             monetary:
-                om_prod: 0.044 #£/kWh 2025 (LCOE SMR+CCS) [CCC Hydrogen-in-a-low-carbon-economy pg67]
+                om_prod: 0.058 #£/kWh 2030 [ORE-Catapult Report](LCOH SMR+CCS = 1.9£/kg) @ 33.33kWh/kgH (1.9/33.33)
             co2:
-                om_prod: 0.356 # kg CO2eq/ kWh
+                om_prod: 0.00359 # £/kWh [CCC Hydrodgen in a low carbon economy pg67 and BEIS Energy & Emissions Projections Annex 4] (82.5g/kWh*43.5£/tonne)
 
     
     wind_offshore:
@@ -45,15 +45,15 @@ techs:
             parent: supply
             carrier_out: electricity
         constraints:
+            energy_cap_min: 1000000 # 1 GW OSW farm
             resource_unit: energy
             resource: file=Synth_1GW_osw_hourly.csv # Synthesised output data of a 1 GW OSW in region1-1 [RenewablesNinja]
-            #force_resource: true
             lifetime: 25
         costs:
             monetary:
-                interest_rate: 0.10
-                energy_cap: 1884.5 # £/kW 2025(interpolated) CAPEX & DEVEX [ORE-Catapult Report] (2191+1587)/2
-                om_annual: 66  # £/kW/year 2025(interpolated) OPEX [ORE-Catapult Report] (75+57)/2
+                interest_rate: 0.035 # Green Book Guidance Social Discount Rates (via CCC Carbon Budget)
+                energy_cap: 1578 # £/kW 2030 CAPEX & DEVEX [ORE-Catapult Report] (offgrid as grid cost will be taken into account in scenarios)
+                om_annual: 57  # £/kW/year 2030 OPEX [ORE-Catapult Report]
             co2:
                 om_prod: 0  # kg CO2eq/kWh, [ipcc_ar5_wg3]
     
@@ -72,13 +72,13 @@ techs:
             carrier_out: hydrogen
             export_carrier: hydrogen
         constraints:
-            energy_eff: 0.65 # PEM Electrolyser Efficiency [Catapult Report pg25] (65% in 2020)
+            energy_eff: 0.7 # PEM Electrolyser Efficiency 2030 [Catapult Report pg25]
             lifetime: 25
         costs:
             monetary:
-                interest_rate: 0.1
-                energy_cap: 1403 # £/kW 2025(interpolated) CAPEX [ORE-Catapult Report] (((26.3+23.7)/2)+887)/0.65
-                om_annual: 1.74  # £/kW/year 2020 OPEX [ORE-Catapult Report] ((1.3+0.96)/2)/0.65 
+                interest_rate: 0.035 # Green Book Guidance Social Discount Rates (via CCC Carbon Budget)
+                energy_cap: 426.71 # £/kW 2030 CAPEX [ORE-Catapult Report] (PEM CAPEX curve pg21 + hydrogen system CAPEX)/eff = (275+23.7)/0.7
+                om_annual: 11.19  # £/kW/year 2020 OPEX [ORE-Catapult Report] (2.5 % of PEM CAPEX curve pg21 + hydrogen system OPEX)/eff = (0.025*275+0.96)/0.7
             co2:
                 om_prod: 0 # kg CO2eq/kWh (Green H production)
     
@@ -94,15 +94,15 @@ techs:
             parent: storage
             carrier: electricity
         constraints:
-            #storage_cap_max: 100000  # otherwise battery becomes unrealistically huge
-            #energy_cap_per_storage_cap_max: 4
-            energy_eff: 0.95  # 0.95 * 0.95 = 0.9025 round trip efficiency
-            storage_loss: 0  # No loss over time assumed
+            energy_eff: 0.92 # RESTLESS Database for a Li-Ion Grid Scale Battery
+            storage_loss: 0  # RESTLESS Database for a Li-Ion Grid Scale Battery (0%/day)
             lifetime: 25
         costs:
             monetary:
-                interest_rate: 0.10
-                storage_cap: 0.115 # £/kWh   # kWh [Lazard's Levelized Cost of Storage Analysis v6.0] (average of wholesale infront of meter)
+                interest_rate: 0.035 # Green Book Guidance Social Discount Rates (via CCC Carbon Budget)
+                #storage_cap: 119 # £/kW [RESTLESS Database CAPEX for a Li-Ion Battery]
+                energy_cap: 543 # £/kW[RESTLESS Database CAPEX for a Li-Ion Grid Scale Battery]
+                om_annual: 12 # £/kW/year [RESTLESS Database Fixed OPEX for a Li-Ion Grid Scale Battery]
     
 
     ##
@@ -138,12 +138,9 @@ techs:
         constraints:
             energy_cap_max:
             energy_eff: 0.975
-            lifetime: 50
-        costs:
-            monetary:
-                interest_rate: 0.1
+                
     
-    undersea_transmission:
+    undersea_transmission: 
         essentials:
             name: 'Undersea power transmission'
             color: '#db34eb'
@@ -151,10 +148,8 @@ techs:
             carrier: electricity
         constraints: 
             energy_eff: 0.975
-            lifetime: 50
-        costs:
-            monetary:
-                interest_rate: 0.10
+        # costs are taken into account in osw
+                
                               
     free_transmission:
         essentials:
@@ -176,10 +171,8 @@ techs:
             parent: transmission
             carrier: hydrogen
         constraints:
-            energy_eff: 0.975
-            lifetime: 50
-        costs:
-            monetary:
-                interest_rate: 0.10
+            energy_eff: 1.0
+ 
+    # costs are taken into account in offshore electrolysis electrolyser tech
     
     # transmission-end

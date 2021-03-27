@@ -47,9 +47,7 @@ links:
             ac_transmission:
                 constraints:
                     one_way: true
-                costs:
-                    monetary:
-                        #om_prod: -0.058 # £/kWh (reference-wholesale 2025) [Updated Energy & Emissions Projections Annex 4 UK GOV BEIS]
+                
                      
             hydrogen_pipes:
                 constraints:
@@ -57,6 +55,7 @@ links:
                 costs:
                     monetary:
                         om_prod: -0 # £/kWh (hydrogen subsidy will be varied by run script)
+                        
                                  
     region1-1,region1-2:
         techs:
