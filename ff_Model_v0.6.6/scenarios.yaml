@@ -5,98 +5,98 @@ scenarios:
    
    default/ref_price_elec/concept_scenario_1: ["on_grid"]
    default/ref_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface"]
-   default/ref_price_elec/concept_scenario_3: ["existing_osw","beatrice_osw"]
-   default/ref_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","kilbraur_osw"]
+   default/ref_price_elec/concept_scenario_3: ["existing_osw","Beatrice_osw"]
+   default/ref_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","Kilbraur_osw"]
    
    default/high_price_elec/concept_scenario_1: ["on_grid","high_price_elec"]
    default/high_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   default/high_price_elec/concept_scenario_3: ["existing_osw","high_price_beatrice_osw","high_price_elec"]
-   default/high_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","high_price_kilbraur_osw","high_price_elec"]
+   default/high_price_elec/concept_scenario_3: ["existing_osw","high_price_Beatrice_osw","high_price_elec"]
+   default/high_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","high_price_Kilbraur_osw","high_price_elec"]
    
    default/low_price_elec/concept_scenario_1: ["on_grid","low_price_elec"]
    default/low_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   default/low_price_elec/concept_scenario_3: ["existing_osw","low_price_beatrice_osw","low_price_elec"]
-   default/low_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","low_price_kilbraur_osw","low_price_elec"]
+   default/low_price_elec/concept_scenario_3: ["existing_osw","low_price_Beatrice_osw","low_price_elec"]
+   default/low_price_elec/concept_scenario_4: ["existing_osw","no_grid_interface","low_price_Kilbraur_osw","low_price_elec"]
    
    
    high_wind_month/ref_price_elec/concept_scenario_1: ["on_grid","windy_month"]
    high_wind_month/ref_price_elec/concept_scenario_2: ["scaleable_osw","windy_month","offshore_electrolysis","no_grid_interface"]
-   high_wind_month/ref_price_elec/concept_scenario_3: ["windy_month","existing_osw","beatrice_osw"]
-   high_wind_month/ref_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
+   high_wind_month/ref_price_elec/concept_scenario_3: ["windy_month","existing_osw","Beatrice_osw"]
+   high_wind_month/ref_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","Kilbraur_osw"]
    
    high_wind_month/high_price_elec/concept_scenario_1: ["on_grid","windy_month","high_price_elec"]
    high_wind_month/high_price_elec/concept_scenario_2: ["scaleable_osw","windy_month","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   high_wind_month/high_price_elec/concept_scenario_3: ["windy_month","existing_osw","high_price_beatrice_osw","high_price_elec"]
-   high_wind_month/high_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","high_price_kilbraur_osw","high_price_elec"]
+   high_wind_month/high_price_elec/concept_scenario_3: ["windy_month","existing_osw","high_price_Beatrice_osw","high_price_elec"]
+   high_wind_month/high_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","high_price_Kilbraur_osw","high_price_elec"]
    
    high_wind_month/low_price_elec/concept_scenario_1: ["on_grid","windy_month","low_price_elec"]
    high_wind_month/low_price_elec/concept_scenario_2: ["scaleable_osw","windy_month","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   high_wind_month/low_price_elec/concept_scenario_3: ["windy_month","existing_osw","low_price_beatrice_osw","low_price_elec"]
-   high_wind_month/low_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","low_price_kilbraur_osw","low_price_elec"]
+   high_wind_month/low_price_elec/concept_scenario_3: ["windy_month","existing_osw","low_price_Beatrice_osw","low_price_elec"]
+   high_wind_month/low_price_elec/concept_scenario_4: ["windy_month","existing_osw","no_grid_interface","low_price_Kilbraur_osw","low_price_elec"]
    
    
    low_wind_month/ref_price_elec/concept_scenario_1: ["on_grid","non_windy_month",]
    low_wind_month/ref_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_month","offshore_electrolysis","no_grid_interface"]
-   low_wind_month/ref_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","beatrice_osw"]
-   low_wind_month/ref_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","kilbraur_osw"]
+   low_wind_month/ref_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","Beatrice_osw"]
+   low_wind_month/ref_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","Kilbraur_osw"]
    
    low_wind_month/high_price_elec/concept_scenario_1: ["on_grid","non_windy_month","high_price_elec"]
    low_wind_month/high_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_month","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   low_wind_month/high_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","high_price_beatrice_osw","high_price_elec"]
-   low_wind_month/high_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","high_price_kilbraur_osw","high_price_elec"]
+   low_wind_month/high_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","high_price_Beatrice_osw","high_price_elec"]
+   low_wind_month/high_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","high_price_Kilbraur_osw","high_price_elec"]
    
    low_wind_month/low_price_elec/concept_scenario_1: ["on_grid","non_windy_month","low_price_elec"]
    low_wind_month/low_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_month","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   low_wind_month/low_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","low_price_beatrice_osw","low_price_elec"]
-   low_wind_month/low_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","low_price_kilbraur_osw","low_price_elec"]
+   low_wind_month/low_price_elec/concept_scenario_3: ["non_windy_month","existing_osw","low_price_Beatrice_osw","low_price_elec"]
+   low_wind_month/low_price_elec/concept_scenario_4: ["non_windy_month","existing_osw","no_grid_interface","low_price_Kilbraur_osw","low_price_elec"]
  
  
    high_wind_day/ref_price_elec/concept_scenario_1: ["on_grid","windy_day"]
    high_wind_day/ref_price_elec/concept_scenario_2: ["scaleable_osw","windy_day","offshore_electrolysis","no_grid_interface"]
-   high_wind_day/ref_price_elec/concept_scenario_3: ["windy_day","existing_osw","beatrice_osw"]
-   high_wind_day/ref_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","kilbraur_osw"]
+   high_wind_day/ref_price_elec/concept_scenario_3: ["windy_day","existing_osw","Beatrice_osw"]
+   high_wind_day/ref_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","Kilbraur_osw"]
    
    high_wind_day/high_price_elec/concept_scenario_1: ["on_grid","windy_day","high_price_elec"]
    high_wind_day/high_price_elec/concept_scenario_2: ["scaleable_osw","windy_day","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   high_wind_day/high_price_elec/concept_scenario_3: ["windy_day","existing_osw","high_price_beatrice_osw","high_price_elec"]
-   high_wind_day/high_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","high_price_kilbraur_osw","high_price_elec"]
+   high_wind_day/high_price_elec/concept_scenario_3: ["windy_day","existing_osw","high_price_Beatrice_osw","high_price_elec"]
+   high_wind_day/high_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","high_price_Kilbraur_osw","high_price_elec"]
    
    high_wind_day/low_price_elec/concept_scenario_1: ["on_grid","windy_day","low_price_elec"]
    high_wind_day/low_price_elec/concept_scenario_2: ["scaleable_osw","windy_day","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   high_wind_day/low_price_elec/concept_scenario_3: ["windy_day","existing_osw","low_price_beatrice_osw","low_price_elec"]
-   high_wind_day/low_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","low_price_kilbraur_osw","low_price_elec"]
+   high_wind_day/low_price_elec/concept_scenario_3: ["windy_day","existing_osw","low_price_Beatrice_osw","low_price_elec"]
+   high_wind_day/low_price_elec/concept_scenario_4: ["windy_day","existing_osw","no_grid_interface","low_price_Kilbraur_osw","low_price_elec"]
    
    
    low_wind_day/ref_price_elec/concept_scenario_1: ["on_grid","non_windy_day"]
    low_wind_day/ref_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_day","offshore_electrolysis","no_grid_interface"]
-   low_wind_day/ref_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","beatrice_osw"]
-   low_wind_day/ref_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","kilbraur_osw"]
+   low_wind_day/ref_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","Beatrice_osw"]
+   low_wind_day/ref_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","Kilbraur_osw"]
    
    low_wind_day/high_price_elec/concept_scenario_1: ["on_grid","non_windy_day","high_price_elec"]
    low_wind_day/high_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_day","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   low_wind_day/high_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","high_price_beatrice_osw","high_price_elec"]
-   low_wind_day/high_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","high_price_kilbraur_osw","high_price_elec"]
+   low_wind_day/high_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","high_price_Beatrice_osw","high_price_elec"]
+   low_wind_day/high_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","high_price_Kilbraur_osw","high_price_elec"]
    
    low_wind_day/low_price_elec/concept_scenario_1: ["on_grid","non_windy_day","low_price_elec"]
    low_wind_day/low_price_elec/concept_scenario_2: ["scaleable_osw","non_windy_day","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   low_wind_day/low_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","low_price_beatrice_osw","low_price_elec"]
-   low_wind_day/low_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","low_price_kilbraur_osw","low_price_elec"]
+   low_wind_day/low_price_elec/concept_scenario_3: ["non_windy_day","existing_osw","low_price_Beatrice_osw","low_price_elec"]
+   low_wind_day/low_price_elec/concept_scenario_4: ["non_windy_day","existing_osw","no_grid_interface","low_price_Kilbraur_osw","low_price_elec"]
    
    
-   full_year/ref_price_elec/concept_scenario_1: ["on_grid","full_year_synth"]
-   full_year/ref_price_elec/concept_scenario_2: ["full_year_scaleable_osw","offshore_electrolysis","no_grid_interface"]
-   full_year/ref_price_elec/concept_scenario_3: ["full_year_Beatrice","existing_osw"]
-   full_year/ref_price_elec/concept_scenario_4: ["full_year_Kilbraur","existing_osw","no_grid_interface"]
+   full_year/ref_price_elec/concept_scenario_1: ["on_grid"]
+   full_year/ref_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface"]
+   full_year/ref_price_elec/concept_scenario_3: ["Beatrice_osw","existing_osw"]
+   full_year/ref_price_elec/concept_scenario_4: ["Kilbraur_osw","existing_osw","no_grid_interface"]
    
-   full_year/high_price_elec/concept_scenario_1: ["on_grid","full_year_synth","high_price_elec"]
-   full_year/high_price_elec/concept_scenario_2: ["full_year_scaleable_osw","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   full_year/high_price_elec/concept_scenario_3: ["full_year_high_price_Beatrice","existing_osw","high_price_elec"]
-   full_year/high_price_elec/concept_scenario_4: ["full_year_high_price_Kilbraur","existing_osw","no_grid_interface","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_1: ["on_grid","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_3: ["high_price_Beatrice","existing_osw","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_4: ["high_price_Kilbraur","existing_osw","no_grid_interface","high_price_elec"]
    
-   full_year/low_price_elec/concept_scenario_1: ["on_grid","full_year_synth","low_price_elec"]
-   full_year/low_price_elec/concept_scenario_2: ["full_year_scaleable_osw","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   full_year/low_price_elec/concept_scenario_3: ["full_year_low_price_Beatrice","existing_osw","low_price_elec"]
-   full_year/low_price_elec/concept_scenario_4: ["full_year_low_price_Kilbraur","existing_osw","no_grid_interface","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_1: ["on_grid","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_3: ["low_price_Beatrice","existing_osw","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_4: ["low_price_Kilbraur","existing_osw","no_grid_interface","low_price_elec"]
    
 
 ##
@@ -121,39 +121,42 @@ overrides:
         techs.wind_offshore.costs.monetary.energy_cap: 0 # since it's already been built
         techs.wind_offshore.costs.monetary.om_annual: 0 # since it's already being operated by someone else
         techs.wind_offshore.constraints.energy_cap_min: 0 # using existing resource so do not need to define capacity
-        techs.wind_offshore.constraints.force_resource: true # must use all of the available osw output
         
-    beatrice_osw:
+    Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_hourly.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_hourly.csv
+        techs.wind_offshore.constraints.force_resource: true # must use all of the available osw output
         techs.electrolysis.costs.monetary.om_con: 0.057 # No longer selling to grid, system is a grid user and must pay for electricity
     
-    scaleable_osw:
+    scaleable_osw: 
+        techs.wind_offshore.constraints.energy_cap_max: 1000000 # since scaleable, must define max capacity
         techs.wind_offshore.constraints.resource_unit: energy_per_cap
         techs.wind_offshore.constraints.resource: file=Synth_1kW_osw_hourly.csv
     
-    kilbraur_osw:
+    Kilbraur_osw:
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_hourly.csv #Curtailed energy from Kilbraur windfarm
         techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
-    
-    high_price_beatrice_osw:
+        
+    high_price_Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_hourly.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_hourly.csv
+        techs.wind_offshore.constraints.force_resource: true # must use all of the available osw output
         techs.electrolysis.costs.monetary.om_con: 0.065 # No longer selling to grid, system is a grid user and must pay for electricity
           
-    high_price_kilbraur_osw:
+    high_price_Kilbraur_osw:
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_hourly.csv #Curtailed energy from Kilbraur windfarm
         techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy   
 
-    low_price_beatrice_osw:
+    low_price_Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_hourly.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_hourly.csv
+        techs.wind_offshore.constraints.force_resource: true # must use all of the available osw output
         techs.electrolysis.costs.monetary.om_con: 0.048 # No longer selling to grid, system is a grid user and must pay for electricity
           
-    low_price_kilbraur_osw:
+    low_price_Kilbraur_osw:
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_hourly.csv #Curtailed energy from Kilbraur windfarm
         techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy  
         
@@ -185,54 +188,54 @@ overrides:
         techs.wind_offshore.constraints.resource: file=Synth_1kW_osw_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         
-    full_year_synth:
+    full_year_synth_osw:
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
         techs.wind_offshore.constraints.resource: file=Synth_1GW_osw_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
     
-    full_year_Beatrice:
+    full_year_Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_daily.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         techs.electrolysis.costs.monetary.om_con: 0.057 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_Kilbraur:
+    full_year_Kilbraur_osw:
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
         
-    full_year_high_price_Beatrice:
+    full_year_high_price_Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_daily.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         techs.electrolysis.costs.monetary.om_con: 0.065 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_high_price_Kilbraur:
+    full_year_high_price_Kilbraur_osw:
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
         
-    full_year_low_price_Beatrice:
+    full_year_low_price_Beatrice_osw:
         locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
         locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_metered_output_daily.csv
+        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
         locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         techs.electrolysis.costs.monetary.om_con: 0.048 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_low_price_Kilbraur:
+    full_year_low_price_Kilbraur_osw:
         model.timeseries_dateformat: "%d/%m/%Y"
         model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
         techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
