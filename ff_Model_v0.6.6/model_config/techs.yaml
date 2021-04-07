@@ -45,9 +45,9 @@ techs:
             parent: supply
             carrier_out: electricity
         constraints:
-            energy_cap_min: 1000000 # 1 GW OSW farm
-            resource_unit: energy
-            resource: file=Synth_1GW_osw_hourly.csv # Synthesised output data of a 1 GW OSW in region1-1 [RenewablesNinja]
+            #energy_cap_min: 1000000 # 1 GW OSW farm
+            resource_unit: energy 
+            resource: file=Synth_1GW_osw_hourly.csv # Synthesised output data of a 1GW OSW in region1-1 [RenewablesNinja]
             lifetime: 25
         costs:
             monetary:
@@ -55,7 +55,7 @@ techs:
                 energy_cap: 1578 # £/kW 2030 CAPEX & DEVEX [ORE-Catapult Report] (offgrid as grid cost will be taken into account in scenarios)
                 om_annual: 57  # £/kW/year 2030 OPEX [ORE-Catapult Report]
             co2:
-                om_prod: 0  # kg CO2eq/kWh, [ipcc_ar5_wg3]
+                om_prod: 0  # kg CO2eq/kWh
     
     
     ##
@@ -78,7 +78,7 @@ techs:
             monetary:
                 interest_rate: 0.05 # Green Book Guidance Social Discount Rates (via CCC Carbon Budget)
                 energy_cap: 426.71 # £/kW 2030 CAPEX [ORE-Catapult Report] (PEM CAPEX curve pg21 + hydrogen system CAPEX)/eff = (275+23.7)/0.7
-                om_annual: 11.19  # £/kW/year 2020 OPEX [ORE-Catapult Report] (2.5 % of PEM CAPEX curve pg21 + hydrogen system OPEX)/eff = (0.025*275+0.96)/0.7
+                om_annual: 11.19  # £/kW/year 2030 OPEX [ORE-Catapult Report] (2.5 % of PEM CAPEX curve pg21 + hydrogen system OPEX)/eff = (0.025*275+0.96)/0.7
             co2:
                 om_prod: 0 # kg CO2eq/kWh (Green H production)
     

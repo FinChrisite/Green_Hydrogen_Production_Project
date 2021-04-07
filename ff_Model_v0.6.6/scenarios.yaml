@@ -90,13 +90,13 @@ scenarios:
    
    full_year/high_price_elec/concept_scenario_1: ["on_grid","high_price_elec"]
    full_year/high_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","high_price_elec"]
-   full_year/high_price_elec/concept_scenario_3: ["high_price_Beatrice","existing_osw","high_price_elec"]
-   full_year/high_price_elec/concept_scenario_4: ["high_price_Kilbraur","existing_osw","no_grid_interface","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_3: ["high_price_Beatrice_osw","existing_osw","high_price_elec"]
+   full_year/high_price_elec/concept_scenario_4: ["high_price_Kilbraur_osw","existing_osw","no_grid_interface","high_price_elec"]
    
    full_year/low_price_elec/concept_scenario_1: ["on_grid","low_price_elec"]
    full_year/low_price_elec/concept_scenario_2: ["scaleable_osw","offshore_electrolysis","no_grid_interface","low_price_elec"]
-   full_year/low_price_elec/concept_scenario_3: ["low_price_Beatrice","existing_osw","low_price_elec"]
-   full_year/low_price_elec/concept_scenario_4: ["low_price_Kilbraur","existing_osw","no_grid_interface","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_3: ["low_price_Beatrice_osw","existing_osw","low_price_elec"]
+   full_year/low_price_elec/concept_scenario_4: ["low_price_Kilbraur_osw","existing_osw","no_grid_interface","low_price_elec"]
    
 
 ##
@@ -106,8 +106,8 @@ overrides:
     
     offshore_electrolysis:
         techs.electrolysis.costs.monetary.energy_cap: 966.71 # £/kW 2030 CAPEX [ORE-Catapult Report] (401.7+275)/0.7
-        techs.electrolysis.costs.monetary.om_annual: 18.83 # £/kW 2030 OPEX [ORE-Catapult Report] (0.025*275+6.31)/2/0.7
-        locations.region1-2.coordinates: {lat: 57.8618, lon: -1.7486} # offshore platform
+        techs.electrolysis.costs.monetary.om_annual: 18.83 # £/kW/year 2030 OPEX [ORE-Catapult Report] (0.025*275+6.31)/2/0.7
+        locations.region1-2.coordinates: {lat: 57.95, lon: -0.7266} # offshore platform
         techs.wind_offshore.constraints.energy_cap_min: 0 # electricity has no-where to go other than electrolyser, therefore must be given option to be curtailed
         
     no_grid_interface:
@@ -181,66 +181,66 @@ overrides:
     non_windy_day:
         model.subset_time: ['2019-10-30 00:00:00', '2019-10-30 23:00:00'] # This is shown to be the least windy day of the year in windfarm analysis
     
-    full_year_scaleable_osw:
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource_unit: energy_per_cap
-        techs.wind_offshore.constraints.resource: file=Synth_1kW_osw_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+    # full_year_scaleable_osw:
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource_unit: energy_per_cap
+        # techs.wind_offshore.constraints.resource: file=Synth_1kW_osw_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
         
-    full_year_synth_osw:
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Synth_1GW_osw_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+    # full_year_synth_osw:
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Synth_1GW_osw_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
     
-    full_year_Beatrice_osw:
-        locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
-        locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0.057 # No longer selling to grid, system is a grid user and must pay for electricity
+    # full_year_Beatrice_osw:
+        # locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
+        # locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0.057 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_Kilbraur_osw:
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
+    # full_year_Kilbraur_osw:
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
         
-    full_year_high_price_Beatrice_osw:
-        locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
-        locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0.065 # No longer selling to grid, system is a grid user and must pay for electricity
+    # full_year_high_price_Beatrice_osw:
+        # locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
+        # locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0.065 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_high_price_Kilbraur_osw:
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
+    # full_year_high_price_Kilbraur_osw:
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
         
-    full_year_low_price_Beatrice_osw:
-        locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
-        locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0.048 # No longer selling to grid, system is a grid user and must pay for electricity
+    # full_year_low_price_Beatrice_osw:
+        # locations.region1-1.coordinates: {lat: 58.3026, lon: -2.9601} # Moray Firth
+        # locations.region1-2.coordinates: {lat: 58.4403, lon: -3.0838} # Wick harbour
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Beatrice_raw_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0.048 # No longer selling to grid, system is a grid user and must pay for electricity
         
-    full_year_low_price_Kilbraur_osw:
-        model.timeseries_dateformat: "%d/%m/%Y"
-        model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
-        techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
-        locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
-        techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
+    # full_year_low_price_Kilbraur_osw:
+        # model.timeseries_dateformat: "%d/%m/%Y"
+        # model.subset_time: ['2019-01-01 00:00:00', '2019-12-31 23:00:00']
+        # techs.wind_offshore.constraints.resource: file=Kilbraur_BAV_output_daily.csv
+        # locations.region2.techs.demand_elec.constraints.resource: file=scotland_TSD_daily.csv
+        # techs.electrolysis.costs.monetary.om_con: 0 # System is being paid to use up unwanted energy
         
         
         

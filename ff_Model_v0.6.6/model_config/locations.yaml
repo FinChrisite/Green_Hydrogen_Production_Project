@@ -5,7 +5,7 @@
 locations:
     # region-1-start
     region1-1:
-        coordinates: {lat: 57.8618, lon: -1.3467}
+        coordinates: {lat: 57.942842, lon: -0.657411}
         techs:
             wind_offshore:
               
