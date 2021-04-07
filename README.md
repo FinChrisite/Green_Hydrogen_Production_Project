@@ -9,28 +9,33 @@
 
 - Each scenario will also be optimised using Calliope’s planning mode, which can be used to assess the optimum capacity of offshore wind (OSW) and electrolyser - between a set of defined constraints - during a simulation
 
-## Model Decision Variables
-- Problem is to decide what value each variable should take
+## Model Key Input Parameters
+- CAPEX and O&M Costs of green hydrogen production system components (£/kW) in 2030
+- Wholesale Cost of electricity (£/kWh)
+- LCOE of Blue Hydrogen (£/kWh)
+- Expected emissions and carbon prices of non-zero carbon industries (£/kgCO2)
+- Time-variant OSW resource (kWh)
+- Time-variant electricity demand (kWh)
+- Fixed hydrogen demand (kWh)
+- Level of subsidy for Green Hydrogen (£/kWh) (will be varied)
 
-  - OSW Installed Capacity
-  - Electrolysis Capacity
-  - Transmission Capacities
-  - Energy Storage Capacity
-  - Rate of Hydrogen production
+## Model Decision Variables
+- Installed Electrolyser capacity (kW)
+- Installed Battery Capacity (kW)
+- Energy vector flow throughout entire system.
 
 - Model can be set to find the optimal value for each of these variables, the choice of decision variables may change for different scenarios/ runs
 
-## Model Constraints
-- Constraints are able to either limit or fully define a variable
+## Model Objective
+- Minimise costs, while ensuring both electricity and hydrogen demands are met
 
-  - Maximum Capacities for techs
-  - Minimum Capacities for techs
-  - Efficiency for techs
-  - Energy Carrier ratios (out/in)
-  - Resource
-  - Force resource (bool)
+## Model Key Output Parameters
+- Optimal Capacities of green hydrogen production system components (kW)
+- Capacity factors of green hydrogen production system components (%)
+- Total cost of each green hydrogen production system components (£)
+- LCOE of green hydrogen production (may include both hydrogen and electricity production) (£/kWh)
+- Minimum level of subsidy required for green hydrogen production to be cost competitive (run the model multiple times with varying levels of hydrogen subsidy) (£/kWh)
 
-- These are just some of the possible constraints that can be used in Calliope, the full list can be found in software documentation
 
 ## Model Testing Procedure
 - The model testing procedure is yet to be fully established, however a basic outline is known at this stage
@@ -40,32 +45,33 @@
   - Ensuring outputs are affected by constraints: This would involve a simple test to ensure that when a constraint is applied to the model, this change is reflected in the simulation’s output
 
 ## Concept Scenario 1
-- Dedicated (small) windfarm for onshore electrolyser
-  - Electrolyser around 80% of OSW capacity, model will be run in planning mode to see if this is optimal capacity
-- When there is surplus OSW output it is sent to national electricity grid
-- When there is not enough OSW output, less hydrogen is produced
-- On site hydrogen and electricity storage capabilities
+- A hypothetical OSW farm directly connected onshore electrolyser.
+- Energy can be stored in a battery, used to produce hydrogen or exported to the electricity grid. 
+- In this scenario the system includes an OSW farm, a battery and an electrolyser, the capital and operational and maintenance cost of all three system components will be considered within the model.
+
 
 ## Concept Scenario 2
-- Dedicated (small) windfarm for offshore electrolyser (on platforms)
-  - Electrolyser around 100 % of OSW capacity
-- Model will find if this is optimal capacity
-- If there happens to be surplus OSW output, on-platform batteries will be used
-- Hydrogen will be transported to shore using underwater pipes
-- Electricity will not be transported to shore
+- A hypothetical OSW farm directly connected to an offshore electrolyser (platform).
+- Energy can be stored in an offshore battery or converted to hydrogen. Energy can only be transported to shore in the form of hydrogen.
+- This scenario contains the same system components as Concept Scenario 1, however as the electrolyser and battery are now situated offshore they will have different associated costs.
+- Additionally, hydrogen pipes will be used in place of undersea HVAC cables, this change will be represented by the costs of the OSW farm and electrolyser. 
+
 
 ## Concept Scenario 3
-- Electrolysis facility is integrated into a much larger windfarm, the primary purpose of which is to produce electricity for grid users.
-- Electrolysers are connected on the OSW side of grid to ensure lower transmission charges
-- Electrolysers are considered as just another grid user, in that they have a set demand
-- The optimal electrolyser capacity/ demand will be found by the model using the planning mode
+- An onshore electrolyser directly connected to Beatrice windfarm.
+- Like Concept Scenario 1, energy can be stored in a battery, used to produce hydrogen or exported to the electricity grid.
+- In this scenario the system does not include the OSW farm; its output is simply an input to the system.
+- Therefore, the CAPEX and OPEX of the windfarm is not included, however there is a cost per unit of energy associated with the system’s consumption of OSW electricity.
+
 
 ## Concept Scenario 4
-- Similarly, electrolysis facility is integrated into a much larger windfarm, the primary purpose of which is to produce electricity for grid users.
-- Electrolysers are connected on the OSW side of grid to ensure lower transmission charges
-- Electrolysers only make use of OSW electricity that would otherwise be curtailed
-- This concept may offer a solution to the variability of supply issue for OSW
-- The optimal electrolyser capacity/ demand will be found by the model using the planning mode
+- An onshore electrolyser that only has access to the curtailed energy of Kilbraur (onshore) windfarm.
+- Kilbraur was used as a proxy for Beatrice windfarm because Beatrice very rarely curtails its output and looks to sell at an exceptionally low price to avoid doing so. Kilbraur is an onshore windfarm but is located in the North East of Scotland and experiences similar levels of wind energy density.
+- Like in Concept Scenario 3, only the CAPEX and OPEX of the electrolyser and battery is considered, however there is no cost associated with the curtailed energy.
 
+## Run Scripts
+Contains jupyter note books that are used to run the model multiple times.
+ - Run Attempts: used for testing code and functions
+ - Green Hydrogen Production Model: Contains full working script for running Calliope model multiple times. The script uses funcions to save the results of each run to a specfic file in Results_Files
 
 
